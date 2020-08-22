@@ -1,0 +1,11 @@
+terms=int(input("HOW MANY TERMS?\n"))
+f=0
+s=1
+count=0
+print("THE FIBONACCI SERIES IS:")
+while count<terms:
+    print(f)
+    sum=f+s
+    f=s
+    s=sum
+    count+=1
