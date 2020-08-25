@@ -1,0 +1,13 @@
+str=input("ENTER A STRING:") 
+    
+def most_frequent(string):
+    d = dict()
+    for key in string:
+        if key not in d:
+            d[key] = 1
+        else:
+            d[key] += 1
+    return d
+print(sorted(most_frequent(str).values(),reverse=True))
+print(sorted(most_frequent(str).keys(),reverse=True)) 
+print(sorted(most_frequent(str).items(),key=itemgetter(0)))
