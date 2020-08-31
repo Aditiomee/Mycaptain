@@ -1,0 +1,39 @@
+
+import csv
+
+
+def student_information(infostudentsplit):
+    csvfile=open('studentinformation.csv','a',newline='') 
+    writer=csv.writer(csvfile) 
+
+    if csvfile.tell()==0:        
+        writer.writerow(["NAME","AGE","Contact Number","EMAILID"])#THIS WILL MAKE THE TOP HEADING.
+
+    writer.writerow(infostudentsplit)#writerrow is in an inbuilt function and infostudentspilt argument= studentsplit.
+
+if __name__=='__main__' :
+    condition=True
+    studentnum=1
+
+    while(condition):
+        student_info=input("ENTER SOME STUDENT INFORMATION FOR STUDENT NUMBER #{} IN FOLLOWING FORMAT (name age contact number emailid):\n".format(studentnum))
+    
+        studentsplit=student_info.split(' ')
+        print("\nThe entered info is:\nName:{}\nAge:{}\nContact_Number{}\nEmailid{}"
+             .format(studentsplit[0],studentsplit[1],studentsplit[2],studentsplit[3]))
+
+        choice_check=input("Is the entered info correct??(yes OR no):")
+              
+        if choice_check=="yes":
+            student_information(studentsplit) #calling the file function to make it write every input for every loop.
+    
+       
+            condition_ask=input("DO YOU WANT TO ENTER MORE STUDENT INFORMATIONS??(yes OR no)")
+            if condition_ask=="yes":
+                condition=True
+                studentnum+=1
+                print(condition_ask)
+            elif condition_ask=="no":
+                condition=False
+        elif choice_check=="no":
+               print("RE-ENTER THE VALUES PLS:")
